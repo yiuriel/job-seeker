@@ -6,12 +6,13 @@ import { SwitchJobView } from "../SwitchJobView/SwitchJobView";
 
 export const LatestJobs = () => {
   const view = useAppSelector((state) => state.jobs.view);
+  const search = useAppSelector((state) => state.jobSearch.query);
 
   const [fetch, { data }] = useLazyFetchJobsQuery();
 
   useEffect(() => {
-    fetch();
-  }, [fetch]);
+    fetch({ search });
+  }, [fetch, search]);
 
   return (
     <div>

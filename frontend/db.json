@@ -1,0 +1,46 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Software Engineer",
+      "description": "Develop and maintain applications.",
+      "salaryMin": 1000,
+      "salaryMax": 2000,
+      "location": "Remote",
+      "company": "Tech Corp",
+      "createdAt": "2023-10-01T00:00:00.000Z",
+      "updatedAt": "2023-10-01T00:00:00.000Z",
+      "tags": ["JavaScript", "React", "Node.js"],
+      "type": "full-time",
+      "category": "IT"
+    },
+    {
+      "id": "2",
+      "title": "Data Analyst",
+      "description": "Analyze business data to generate insights.",
+      "salaryMin": 1500,
+      "salaryMax": 2500,
+      "location": "New York",
+      "company": "Data Inc",
+      "createdAt": "2023-10-01T00:00:00.000Z",
+      "updatedAt": "2023-10-01T00:00:00.000Z",
+      "tags": ["Python", "SQL", "Pandas"],
+      "type": "full-time",
+      "category": "Data Science"
+    },
+    {
+      "id": "3",
+      "title": "Mock Post 1",
+      "description": "Mock Description 1",
+      "salaryMin": 1000,
+      "salaryMax": 2000,
+      "location": "Mock Location 1",
+      "company": "Mock Company 1",
+      "createdAt": "2023-10-01T00:00:00.000Z",
+      "updatedAt": "2023-10-01T00:00:00.000Z",
+      "tags": ["Mock Tag 1", "Mock Tag 2"],
+      "type": "full-time",
+      "category": "Mock Category 1"
+    }
+  ]
+}

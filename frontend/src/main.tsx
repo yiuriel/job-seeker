@@ -5,8 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import App from "./App.tsx";
 import "./index.css";
 import { HomePage } from "./page/Home.tsx";
-import { store } from "./redux/store.ts";
+import { JobDetailsPage } from "./page/JobDetails.tsx";
 import { PostJobPage } from "./page/PostJob.tsx";
+import { store } from "./redux/store.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
           <Route element={<App />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/post-job" element={<PostJobPage />} />
+            <Route path="/job/:id" element={<JobDetailsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

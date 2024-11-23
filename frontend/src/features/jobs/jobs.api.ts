@@ -10,6 +10,11 @@ let mockData: Job[] = [
     salaryMax: 2000,
     location: "Remote",
     company: "Tech Corp",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ["JavaScript", "React", "Node.js"],
+    type: "full-time",
+    category: "IT",
   },
   {
     id: "2",
@@ -19,6 +24,11 @@ let mockData: Job[] = [
     salaryMax: 2500,
     location: "New York",
     company: "Data Inc",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ["Python", "SQL", "Pandas"],
+    type: "full-time",
+    category: "Data Science",
   },
   {
     id: "3",
@@ -28,6 +38,11 @@ let mockData: Job[] = [
     salaryMax: 2000,
     location: "Mock Location 1",
     company: "Mock Company 1",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    tags: ["Mock Tag 1", "Mock Tag 2"],
+    type: "full-time",
+    category: "Mock Category 1",
   },
 ];
 
@@ -47,14 +62,39 @@ export const jobsApi = createApi({
         return { data: filteredData };
       },
     }),
+    fetchJobById: builder.query<Job, string>({
+      queryFn: async (id) => {
+        const foundJob = mockData.find((job) => job.id === id);
+        if (foundJob) {
+          return { data: foundJob };
+        }
+        throw new Error(`Job with id ${id} not found`);
+      },
+    }),
     postJob: builder.mutation<Job[], Omit<Job, "id">>({
       queryFn: async (newJob) => {
-        mockData = [{ ...newJob, id: `${mockData.length + 1}` }, ...mockData];
+        mockData = [
+          {
+            ...newJob,
+            id: `${mockData.length + 1}`,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            tags: ["Mock Tag 1", "Mock Tag 2"],
+            type: "full-time",
+            category: "Mock Category 1",
+          },
+          ...mockData,
+        ];
         return { data: mockData };
       },
     }),
   }),
 });
 
-export const { useFetchJobsQuery, useLazyFetchJobsQuery, usePostJobMutation } =
-  jobsApi;
+export const {
+  useFetchJobsQuery,
+  useLazyFetchJobsQuery,
+  usePostJobMutation,
+  useFetchJobByIdQuery,
+  useLazyFetchJobByIdQuery,
+} = jobsApi;
