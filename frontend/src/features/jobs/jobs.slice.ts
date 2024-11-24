@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../redux/store";
 
 export interface JobsState {
   view: "grid" | "list";
@@ -18,6 +19,10 @@ export const jobsSlice = createSlice({
     },
   },
 });
+
+export const jobsSelectors = {
+  view: (state: RootState) => state.jobs.view,
+};
 
 // Action creators are generated for each case reducer function
 export const { changeView } = jobsSlice.actions;
